@@ -1,0 +1,291 @@
+1.What is ADO.NET?
+  * It is a object oriented technology given by the Microsoft.
+  * it can be used for communication with datasources from .net enabled application.
+
+2.What is DataSource?
+  *Datasource is nothing but where we can store the data and retrieve data for application .
+  * we can use different datacources in the .net enabled applications...
+  *Datasources are database,collection of objects,Xml documents and file system
+
+3.what is the difference between connection oriented architecture and disconnected architecture?
+            connection oriented                         disconnected
+            -------------------                      -------------------   (a)the application with establish          (a)the required data will befetched
+   connection with database server            in tothe datasetandtheconnection
+   and it will be kept open and until         will be closed. 
+   task has been completed
+                                           
+ (b)for every operation of the database     (b)the required data manipulatins 
+   we need to communicate with database      will be  done on the tables in to 
+   server,so that traffic to the             the dataset then changes will be                                               update back to the database    
+   database server will be increased         at once,so that traffic the                                                    database server can be reduced
+         
+         (c)parallel transactions will be easy      (c)parallel transactions will be difficult
+         
+         (d)fetching the data will be fast          (d)fetching the data will be slow
+
+         (e)no memory management is required        (e)memory management is required for the
+                                                       dataset.
+
+4.what is connectionpooling?
+  *it is a set of open connections maintained by the application.
+  *whenever the apllication wants connection  to the database server it can  taken from the 
+   connection to the connection pool.once task hasbeen completed the connection will be return 
+   back to the connection pool,so that traffic to the database server can be reduced to open 
+   a connection and close a connection
+
+5.is the connectionpool is the part of the ADO.NET?
+  *NO,it is a seperate algorithm which is implemented by the .net data provider.
+
+6.where we can provide size of the connection pool?
+  *As a part of connection string
+
+7.what is the .NET Data Provider?
+  *it is a collection of classes which are implementing standard interfaces given by
+   the microsoft as a part of  "System.Data" name space.
+  *.NET Data providers are
+     (a)OLEDB .NET Data Provider
+     (b)SQLserver .NET Data Provider
+     (c)Oracle .NET Data Provider
+     (d)ODBC .NET Data Provider
+     (e)SQL Client .NET Data Provider
+
+8.what is the .NET Data Provider used by the MySql?
+  *ByteFxData
+  *CoreLabs
+
+9.how many types of classes are existing in the ADO.Net?
+  *Two types of classes are existing in the ADO.Net
+   they are
+    (a)connection oriented classes:
+      -----------------------------
+            *connection oriented classes are designed as a part of the .net data provider.
+            *all the connection oriented classes are designed accroding to the interfaces 
+              given by the microsoft as a part of System.Data namespace.
+            *Connection oriented classes are usefull to communicate with different databases(local or remote)
+          EX:connection,command,DataReader,DataAdaptor
+    (b)content based classes:
+      ----------------------
+             *content based classes objects are used to hold the data that has been fetched
+               from different datasources.
+             *all the content based classes designed as a part of System.Data namespace.
+           Ex:DataSet,DataTable,DataRow,DataColumn.
+
+10.What is the connection object?
+   *connection object can be used for prepare the connection,open the connection and close
+   the connection.
+
+11.what is the connection string?
+   *it will provide complete information of the database server.
+
+12.what is the properties of the connection object?
+   *ConnectionString:Specify connection string
+   *ConnectionTimeOut:time in seconds how long the code has to wait before generating error if connection can not be established
+   *DataBase:specify the name of databae
+   *state:it gives state of connection(open,closed) 
+
+13.what are the methods of the connection object?(Optional)
+   *BeginTransaction()
+   *ChangeDatabase()
+   *Open()
+   *CreateCommand()
+   *Close()
+
+14.What is the Command object?
+   *it can be used for prepare and submit sql commanads to dabase engine
+
+15.what are the properties of the command object?
+  *CommandText:specify command in the form of text or stored procedure
+  *CommandType:text or storedprocedure
+  *Connection:specify connection object
+  *CommandTimeOut:How long code has to wait before genarating error report if command can not be executed
+  *Parameters 
+
+16.wchich methods are submitting the command to the database engine?
+   *ExecuteReader():
+   --------------
+          this method can be used to submit the sqlstatements to database engine.it will return one row 
+          or more than one row from database.
+   *ExecuteNonQuery():
+   -----------------
+         this method can be used to submit the DML commands to database engine.if the DML commands executed
+         successfully it will return '1' otherwise it will return '0'.
+   *ExecuteScalar():
+   -------------------
+          this method can be used to submit the sqlstatements to databaseengine.which can return a
+          single value.
+
+17.What is DataReader?
+   *DataReader object can be used for fetch a records one by one from the network buffer.
+   *DataReader object can contain single reacord at a time.
+   
+18.What is DataSet?
+   *DataSet is a virtual relational database.which contains tables and relations.
+   *Dataset is a bidirectional navigation and manipulation.
+   *Dataset can be used for disconnected architecture why because it maintained the database tables without 
+    connecting the database.
+
+19.what is the DataAdaptor?
+   *it can be used for trasmitting the data from database to dataset.
+   *DataAdaptor winn not perform storage, it will transmitting the data only.
+
+20.what is the diff between DataReader and DataSet?
+   *DataReader object can be used to fetch the records  one by one from the network buffer  whereas
+    DataSet object can be used to fetch all the records at a time from the network buffer
+   *DataReader object can contain single record at a time.
+    Dataset object can contain multiple records at a time.
+
+21.what is the difference between copy() and clone()?
+   *copy method will copy the structure and data of the table.
+   *clone method will copy the structure of the table.
+
+22.what is the difference between close() and dispose()?
+   *connection close with close method,it can be opened.
+   *connection close with dispose method ,it can not be opened.
+
+23.what is the purpose of Fill()?
+  *automatically connection will be open and fetch the data from database in to dataset.
+   once fetch the data has been completed automatically connection will be closed.
+
+24.what are DataSource control?
+  *Datasource control is programming component for connecting  to different type of data.
+  *it acts like mediator between databound[gridview,datalist,...] controls and datasources 
+  *Datasource controls are:
+   (a)Sqldatasource
+   (b)Linqdatasource
+   (c)Entitydatasource
+   (d)Objectdatasource
+   (e)Xmldatasource
+   (f)Sitemapdatasource
+
+25.what are Rich Data controls?
+   *it can be used to present data to user which is fetced from different datasouces.
+   *Rich Data controls are.
+     (a)DataList control.
+     (b)DetailsView control.
+     (c)FormView control.
+     (d)GridView control.
+     (e)ListView control.
+
+26.what is DataList control?
+  *it is introduced from asp.net 1.0.
+  *it is used to generate the reports accroding to requirements.
+  *Records can be shown to the user horizontaly or verticaly
+  *to bind the data with control we neeed to make use of templates.
+
+27.what are the different types of templates available in the datalist control?
+  *HeaderTemplate:
+  ---------------
+       it is used to bind data with header part of the datalist control.
+  *ItemTemplate:
+  ---------------
+       it is used  to bind data with item in datalist control.
+  *AlternatingItemTemplate:
+  -------------------------
+       it is used to bind data with alternate items of datalist control.
+  *SeperateTemplate:
+  ------------------
+       it is used to provide seperator between items in datalist.
+  *FooterTemplate:
+  ----------------
+       it is used to provide some footer to the datalist control.
+
+28.What are the operations supported by DataList control?
+  *Edit,Delete.
+
+29.what are the operations not supported by DataList Control?
+  *Paging,Insert.
+
+30.what is DetailsView control?
+  *it is introduced from asp.net 2.0.
+  *No template design is required.
+  *all columns of table will be automatically binded with detailsview control.
+
+31.What are the operations supported by DetailsView control? 
+  *insert,delete,update and paging.
+
+32.What are the operations not supported by DetailsView control?
+  *sorting.
+
+33.what is FormView control?
+  *is is introduced from asp.net 2.0.
+  *it need template to be designed to bind the data.
+  *it is simalr to detailsview control.
+
+34. What are the operations supported by FormView control? 
+  *insert,delete,update and paging.
+
+35.What are the operations not supported by FormView control?
+  *sorting.
+
+36.what is GridView control?
+  *it is introduced from asp.net 2.0.
+  *it can present the information in the from of rows and columns.
+  *each row of gridview control is represented by gridview row object.all rows are maintained in the form of row collection.
+  *All columns of gridview controls are maintained in the form of colums collection.
+
+37.What are the operations supported by GridView control? 
+  *Edit,delete,sorting and paging.
+ 
+38.What are the operations not supported by GridView control? 
+  *insert.
+
+39.what are the field available in the gridview for customizing?
+   *BoundField:
+   ------------
+      This will diaplay the text based on dataset table columns,this is default field
+   *TemplateField:
+  -----------------
+      this allows placing webserver controls into gridview.
+   *ButtonField:
+  -----------------
+      this provide special type of buttons into gridview .
+       Ex:select,edit,delete
+   *ImageField:
+  -----------------
+      this allows display image in gridview control.
+
+40.what is ListView control?
+   *it is introduced from asp.net 3.5.
+   *it support all operations those can be performed by using existing different rich datasource controls.
+
+41.What are the operations supported by ListView control? 
+  *paging,sorting,insert,delete,update.
+
+42.what is DataPager?
+  *it is used to design pagger setting for ListView control.
+
+43.what is TreeView control?
+  *It is one of the sitenavigation control.
+  *Items in the treeview control will be representing by using nodes collection.
+  *Each node will be representing by using TreeNode object.
+  *Each node can contain number of other nodes as childnodes.
+  *All childnodes of node will be representing by using childnodes collection. 
+
+44.What is Menu control?
+  *it is a navigation control.We can maintain number of items in the form of
+   items collection.
+
+45.what is Repeator control?
+  *it is not provided with built in structure,developer should provide structure
+   using templates.
+
+46.what is the difference between DataList and Repeator control?
+   *Datalist provides more number of templates compare to repeator.
+   *DataList supports more than one record in a row by providing
+    repeatorcolumns property.
+    Repeator is not supported.
+  *DataList provides style property to apply formatting to templates information.
+   Repeator is not supported.
+  *Datalist rendering will be slow.
+   Repeator rendering will be faster,it provides better performance over datalist.
+
+47.what is purpose of read method?
+  *read method can be used to fetch the record from network buffer.
+
+48.what is the diff b/w command obj and command builder obj?
+  *command object can be used prepare the command and submit the sql command to database engine
+  and result set is given to the database engine and then send back to the application.
+  
+  *command builder can prepare the sql statements according to the operations done on the
+  tables in the dataset and commands are assigned to the dataadaptor.
+ 
